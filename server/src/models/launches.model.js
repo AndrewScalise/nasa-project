@@ -18,6 +18,18 @@ function getAllLaunches() {
   return Array.from(launches.values());
 }
 
+function addNewLaunch(launch) {
+  const newFlightNumber = launches.size + 1;
+  const newLaunch = Object.assign(launch, {
+    flightNumber: newFlightNumber,
+    customers: ["Zero to Mastery", "NASA"],
+    upcoming: true,
+    success: true,
+  });
+  launches.set(newFlightNumber, newLaunch);
+}
+
 module.exports = {
   getAllLaunches,
+  addNewLaunch,
 };
